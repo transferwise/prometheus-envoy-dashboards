@@ -86,28 +86,28 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(envoy_cluster_upstream_cx_total{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_cx_total{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "egress CPS",
               "refId": "A"
             },
             {
-              "expr": "sum(rate(envoy_cluster_upstream_rq_total{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_rq_total{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "egress RPS",
               "refId": "B"
             },
             {
-              "expr": "sum(rate(envoy_cluster_upstream_rq_pending_total{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_rq_pending_total{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "pending req to",
               "refId": "C"
             },
             {
-              "expr": "sum(rate(envoy_cluster_lb_healthy_panic{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_lb_healthy_panic{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "lb healthy panic RPS",
@@ -182,21 +182,21 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(envoy_cluster_upstream_cx_active{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"})",
+              "expr": "sum(envoy_cluster_upstream_cx_active{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "connections",
               "refId": "A"
             },
             {
-              "expr": "sum(envoy_cluster_upstream_rq_active{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"})",
+              "expr": "sum(envoy_cluster_upstream_rq_active{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "requests",
               "refId": "B"
             },
             {
-              "expr": "sum(envoy_cluster_upstream_rq_pending_active{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"})",
+              "expr": "sum(envoy_cluster_upstream_rq_pending_active{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "pending",
@@ -271,35 +271,35 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(delta(envoy_cluster_membership_change{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(delta(envoy_cluster_membership_change{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "membership changes [1m]",
               "refId": "A"
             },
             {
-              "expr": "sum(envoy_cluster_membership_total{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"})",
+              "expr": "sum(envoy_cluster_membership_total{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "total membershiip",
               "refId": "B"
             },
             {
-              "expr": "sum(envoy_cluster_outlier_detection_ejections_active{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"})",
+              "expr": "sum(envoy_cluster_outlier_detection_ejections_active{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "outlier ejections active",
               "refId": "C"
             },
             {
-              "expr": "sum(envoy_cluster_membership_healthy{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"})",
+              "expr": "sum(envoy_cluster_membership_healthy{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "healthy members (active HC and outlier)",
               "refId": "D"
             },
             {
-              "expr": "sum(envoy_cluster_health_check_healthy{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"})",
+              "expr": "sum(envoy_cluster_health_check_healthy{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "healthy members (active HC only)",
@@ -374,7 +374,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "1 - (sum(rate(envoy_cluster_upstream_rq_xx{response_code_class=\"5\",instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m])) / sum(rate(envoy_cluster_upstream_rq_xx{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m])))",
+              "expr": "1 - (sum(rate(envoy_cluster_upstream_rq_xx{response_code_class=\"5\",instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m])) / sum(rate(envoy_cluster_upstream_rq_xx{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m])))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Success Rate %",
@@ -450,7 +450,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "1 - (sum(rate(envoy_cluster_upstream_rq_xx{response_code_class=\"4\",instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m])) / sum(rate(envoy_cluster_upstream_rq_xx{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m])))",
+              "expr": "1 - (sum(rate(envoy_cluster_upstream_rq_xx{response_code_class=\"4\",instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m])) / sum(rate(envoy_cluster_upstream_rq_xx{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m])))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "%",
@@ -526,63 +526,63 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(envoy_cluster_upstream_cx_connect_timeout{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_cx_connect_timeout{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "connect timeout",
               "refId": "A"
             },
             {
-              "expr": "sum(rate(envoy_cluster_upstream_rq_pending_failure_eject{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_rq_pending_failure_eject{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "pending failure ejection",
               "refId": "B"
             },
             {
-              "expr": "sum(rate(envoy_cluster_upstream_rq_pending_overflow{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_rq_pending_overflow{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "pending overflow",
               "refId": "C"
             },
             {
-              "expr": "sum(rate(envoy_cluster_upstream_rq_timeout{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_rq_timeout{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "request timeout",
               "refId": "D"
             },
             {
-              "expr": "sum(rate(envoy_cluster_upstream_rq_per_try_timeout{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_rq_per_try_timeout{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "per try request timeout",
               "refId": "E"
             },
             {
-              "expr": "sum(rate(envoy_cluster_upstream_rq_rx_reset{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_rq_rx_reset{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "request reset",
               "refId": "F"
             },
             {
-              "expr": "sum(rate(envoy_cluster_upstream_cx_destroy_local_with_active_rq{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_cx_destroy_local_with_active_rq{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "destroy initialized from originating service",
               "refId": "G"
             },
             {
-              "expr": "sum(rate(envoy_http_downstream_cx_destroy_remote_active_rq{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_http_downstream_cx_destroy_remote_active_rq{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "destroy initialized from remote service",
               "refId": "H"
             },
             {
-              "expr": "sum(rate(envoy_cluster_upstream_rq_maintenance_mode{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_rq_maintenance_mode{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "request failed maintenance mode",
@@ -657,7 +657,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(envoy_cluster_upstream_rq_retry{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_rq_retry{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -665,14 +665,14 @@
               "refId": "A"
             },
             {
-              "expr": "sum(rate(envoy_cluster_upstream_rq_retry_success{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_rq_retry_success{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "request retry success",
               "refId": "B"
             },
             {
-              "expr": "sum(rate(envoy_cluster_upstream_rq_retry_overflow{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_rq_retry_overflow{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "request retry overflow",
@@ -747,7 +747,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(envoy_cluster_upstream_flow_control_paused_reading_total{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_flow_control_paused_reading_total{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -755,21 +755,21 @@
               "refId": "A"
             },
             {
-              "expr": "sum(rate(envoy_cluster_upstream_flow_control_resumed_reading_total{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_flow_control_resumed_reading_total{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "resumed reading from destination service",
               "refId": "B"
             },
             {
-              "expr": "sum(rate(envoy_cluster_upstream_flow_control_backed_up_total{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_flow_control_backed_up_total{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "paused reading from originating service",
               "refId": "C"
             },
             {
-              "expr": "sum(rate(envoy_cluster_upstream_flow_control_drained_total{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_upstream_flow_control_drained_total{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "resumed reading from originating service",
@@ -844,14 +844,14 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(envoy_cluster_outlier_detection_ejections_enforced_total{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_outlier_detection_ejections_enforced_total{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Total ejections",
               "refId": "A"
             },
             {
-              "expr": "sum(rate(envoy_cluster_outlier_detection_ejections_overflow{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m]))",
+              "expr": "sum(rate(envoy_cluster_outlier_detection_ejections_overflow{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Total ejection overflows",
@@ -926,21 +926,21 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "histogram_quantile(0.5, sum(rate(envoy_cluster_upstream_rq_time_bucket{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m])) by (le))",
+              "expr": "histogram_quantile(0.5, sum(rate(envoy_cluster_upstream_rq_time_bucket{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m])) by (le))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "50th %ile",
               "refId": "A"
             },
             {
-              "expr": "histogram_quantile(0.95, sum(rate(envoy_cluster_upstream_rq_time_bucket{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(envoy_cluster_upstream_rq_time_bucket{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m])) by (le))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "95th %ile",
               "refId": "B"
             },
             {
-              "expr": "histogram_quantile(0.99, sum(rate(envoy_cluster_upstream_rq_time_bucket{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"}[1m])) by (le))",
+              "expr": "histogram_quantile(0.99, sum(rate(envoy_cluster_upstream_rq_time_bucket{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m])) by (le))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "99th %ile",
@@ -1027,7 +1027,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(envoy_cluster_upstream_rq_retry_overflow{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"})",
+              "expr": "sum(envoy_cluster_upstream_rq_retry_overflow{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "overflows",
@@ -1102,7 +1102,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(envoy_cluster_upstream_cx_overflow{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"})",
+              "expr": "sum(envoy_cluster_upstream_cx_overflow{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "refId": "A"
@@ -1176,7 +1176,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(envoy_cluster_upstream_rq_pending_overflow{instance=~\"[[originating_instance]]\",local_cluster=~\"[[originating_service]]\",cluster_name=~\"[[destination_service]]\"})",
+              "expr": "sum(envoy_cluster_upstream_rq_pending_overflow{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "overflows",
@@ -1251,7 +1251,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(envoy_cluster_upstream_rq_pending_overflow{local_cluster=~\"[[destination_service]]\",cluster_name=~\"local_service_[[destination_service]]\"})",
+              "expr": "sum(envoy_cluster_upstream_rq_pending_overflow{local_cluster=\"[[destination_service]]\",cluster_name=\"local_service_[[destination_service]]\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "refId": "A"
@@ -1325,7 +1325,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(envoy_cluster_upstream_cx_overflow{local_cluster=~\"[[destination_service]]\",cluster_name=~\"local_service_[[destination_service]]\"})",
+              "expr": "sum(envoy_cluster_upstream_cx_overflow{local_cluster=\"[[destination_service]]\",cluster_name=\"local_service_[[destination_service]]\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "refId": "A"
@@ -1411,14 +1411,14 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(envoy_http_rq_total{local_cluster=~\"[[destination_service]]\",http_conn_manager_prefix=~\"ingress_[[destination_service]]_http\"}[1m]))",
+              "expr": "sum(rate(envoy_http_rq_total{local_cluster=\"[[destination_service]]\",http_conn_manager_prefix=\"ingress_[[destination_service]]_http\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "RPS",
               "refId": "A"
             },
             {
-              "expr": "sum(rate(envoy_http_downstream_cx_total{local_cluster=~\"[[destination_service]]\",http_conn_manager_prefix=~\"ingress_[[destination_service]]_http\"}[1m]))",
+              "expr": "sum(rate(envoy_http_downstream_cx_total{local_cluster=\"[[destination_service]]\",http_conn_manager_prefix=\"ingress_[[destination_service]]_http\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "CPS",
@@ -1500,7 +1500,7 @@
         "current": {},
         "datasource": "${DS_PROMETHEUS}",
         "hide": 0,
-        "includeAll": true,
+        "includeAll": false,
         "label": "Originating Service",
         "multi": false,
         "name": "originating_service",
@@ -1520,7 +1520,7 @@
         "current": {},
         "datasource": "${DS_PROMETHEUS}",
         "hide": 0,
-        "includeAll": true,
+        "includeAll": false,
         "label": "Destination Service",
         "multi": false,
         "name": "destination_service",
