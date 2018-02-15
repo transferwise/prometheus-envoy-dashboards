@@ -40,3 +40,5 @@ have to be histograms rather than summaries!
 Other than the obvious "finish this porting excercise" work:
 * Remove statsd exporter usage completely once Enovy stats endpoint supports histograms
 * Use Prometheus recording rules for some of the more expensive to calculate aggregations
+* Work out how to deal with metrics that haven't been initialized yet (e.g. avoiding Success Rate no data when the
+response_code_class=5 label doesn't exist yet.)
