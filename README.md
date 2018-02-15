@@ -20,7 +20,7 @@ this if you need to) rather than summary. This is because the dashboard expects 
 aggregate across multiple instances of the same service. You cannot do that with summaries
 since e.g. avg(99th %ile) across multiple instances is completely meaningless.
 
-The choices were to either have various tiers of statsd reciever performing the summary at the
+The choices were to either have various tiers of statsd receiver performing the summary at the
 different aggregation levels we want (per instance, per source service, per destination service,
 and every combination of the above) or to give up and use histograms which do allow aggregation.
 The big downside of histograms is that granularity is limited to your buckets. As long as you
@@ -37,7 +37,7 @@ have to be histograms rather than summaries!
 * External Ingress stats. We don't use it that way yet.
 
 ## TODO
-Other than the obvious "finish this porting excercise" work:
+Other than the obvious "finish this porting exercise" work:
 * Remove statsd exporter usage completely once Enovy stats endpoint supports histograms
 * Use Prometheus recording rules for some of the more expensive to calculate aggregations
 * Work out how to deal with metrics that haven't been initialized yet (e.g. avoiding Success Rate no data when the
