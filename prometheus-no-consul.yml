@@ -1,0 +1,41 @@
+  - job_name: 'envoy'
+    metrics_path: '/stats'
+    params:
+      format: ['prometheus']
+    static_configs:
+    - targets:
+      - "test-foobar1:9901"
+      - "test-foobar2:9901"
+      - "test-baz1:9901"
+      - "test-baz2:9901"
+    relabel_configs:
+    - source_labels: ['__address__']
+      regex: '(?:test-|dev-)?([^.]+?)[0-9]*\..*'
+      target_label: 'local_cluster' # Label to identify the type of service of the target host. We pull this from the host name.
+      replacement: '$1'
+    - source_labels: ['__address__']
+      regex: '(.+):9901'
+      target_label: 'instance' # Overwrite instance to not have the port number in it
+      replacement: '$1'
+    metric_relabel_configs: # We don't like the envoy_ prefixes on label names, they're unnecessary. So strip them.
+    - action: 'labelmap'
+      regex: 'envoy_(.*)'
+      replacement: '$1'
+    - action: 'labeldrop'
+      regex: 'envoy_(.*)'
+  - job_name: 'envoy_statsd' # Histograms have to come from statsd still. Config is the same as above but with port 9102 instead of 9901.
+    static_configs:
+    - targets:
+      - "test-foobar1:9102"
+      - "test-foobar2:9102"
+      - "test-baz1:9102"
+      - "test-baz2:9102"
+    relabel_configs:
+    - source_labels: ['__address__']
+      regex: '(?:test-|dev-)?([^.]+?)[0-9]*\..*'
+      target_label: 'local_cluster' # Label to identify the type of service of the target host. We pull this from the host name.
+      replacement: '$1'
+    - source_labels: ['__address__']
+      regex: '(.+):9102'
+      target_label: 'instance' # Overwrite instance to not have the port number in it
+      replacement: '$1'

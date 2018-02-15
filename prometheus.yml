@@ -1,0 +1,55 @@
+  - job_name: 'envoy'
+    consul_sd_configs:
+     - server: 'consul:8500'
+    metrics_path: '/stats'
+    params:
+      format: ['prometheus']
+    relabel_configs:
+    - source_labels: ['__meta_consul_tags']
+      regex: '.*,has_envoy,.*' # We tag service instances that have envoy with the tag "has_envoy" in Consul
+      action: 'keep'
+    - source_labels: ['__meta_consul_service']
+      regex: '(.+)'
+      replacement: '${1}'
+      target_label: 'local_cluster' # Label to identify the type of service of the target host
+    - source_labels: ['__meta_consul_service_port']
+      regex: '.*'
+      replacement: '9901'
+      target_label: '__meta_consul_service_port' # Poll the port of the Envoy admin interface, not the service.
+    - source_labels: ['__address__']
+      regex: '(.*):.*'
+      replacement: '$1:9901'
+      target_label: '__address__' # Poll the port of the Envoy admin interface, not the service.
+    - source_labels: ['__meta_consul_node']
+      regex: '(.+)'
+      target_label: 'instance' # Overwrite instance to not have the port number in it
+      replacement: '$1'
+    metric_relabel_configs: # We don't like the envoy_ prefixes on label names, they're unnecessary. So strip them.
+    - action: 'labelmap'
+      regex: 'envoy_(.*)'
+      replacement: '$1'
+    - action: 'labeldrop'
+      regex: 'envoy_(.*)'
+  - job_name: 'envoy_statsd' # Histograms have to come from statsd still. Config is basically the same as above but with port 9102 instead of 9901.
+    consul_sd_configs:
+     - server: 'consul:8500'
+    relabel_configs:
+    - source_labels: ['__meta_consul_tags']
+      regex: '.*,has_envoy,.*'
+      action: 'keep'
+    - source_labels: ['__meta_consul_service']
+      regex: '(.+)'
+      replacement: '${1}'
+      target_label: 'local_cluster'
+    - source_labels: ['__meta_consul_service_port']
+      regex: '.*'
+      replacement: '9102'
+      target_label: '__meta_consul_service_port'
+    - source_labels: ['__address__']
+      regex: '(.*):.*'
+      replacement: '$1:9102'
+      target_label: '__address__'
+    - source_labels: ['__meta_consul_node']
+      regex: '(.+)'
+      target_label: 'instance'
+      replacement: '$1'
