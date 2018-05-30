@@ -137,7 +137,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             },
             {
@@ -145,7 +145,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
@@ -226,7 +226,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             },
             {
@@ -234,7 +234,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
@@ -329,7 +329,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             },
             {
@@ -337,7 +337,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
@@ -362,7 +362,7 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "nullPointMode": "null",
+          "nullPointMode": "null as zero",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -374,7 +374,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "1 - (sum(rate(envoy_cluster_upstream_rq_xx{response_code_class=\"5\",instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m])) / sum(rate(envoy_cluster_upstream_rq_xx{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m])))",
+              "expr": "sum(rate(envoy_cluster_upstream_rq_xx{response_code_class!=\"5\",instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m])) / sum(rate(envoy_cluster_upstream_rq_xx{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Success Rate %",
@@ -413,7 +413,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
@@ -438,7 +438,7 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "nullPointMode": "null",
+          "nullPointMode": "null as zero",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -450,7 +450,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "1 - (sum(rate(envoy_cluster_upstream_rq_xx{response_code_class=\"4\",instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m])) / sum(rate(envoy_cluster_upstream_rq_xx{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m])))",
+              "expr": "sum(rate(envoy_cluster_upstream_rq_xx{response_code_class=\"4\",instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m])) / sum(rate(envoy_cluster_upstream_rq_xx{instance=~\"[[originating_instance]]\",local_cluster=\"[[originating_service]]\",cluster_name=\"[[destination_service]]\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "%",
@@ -489,7 +489,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
@@ -612,7 +612,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             },
             {
@@ -620,7 +620,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
@@ -702,7 +702,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             },
             {
@@ -710,7 +710,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
@@ -799,7 +799,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             },
             {
@@ -807,7 +807,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
@@ -881,7 +881,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             },
             {
@@ -889,7 +889,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
@@ -970,7 +970,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             },
             {
@@ -978,7 +978,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
@@ -1057,7 +1057,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             },
             {
@@ -1065,7 +1065,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
@@ -1131,7 +1131,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             },
             {
@@ -1139,7 +1139,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
@@ -1206,7 +1206,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             },
             {
@@ -1214,7 +1214,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
@@ -1280,7 +1280,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             },
             {
@@ -1288,7 +1288,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
@@ -1354,7 +1354,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             },
             {
@@ -1362,7 +1362,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
@@ -1448,7 +1448,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             },
             {
@@ -1456,7 +1456,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": 0,
               "show": true
             }
           ]
